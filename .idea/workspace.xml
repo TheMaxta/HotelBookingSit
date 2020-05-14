@@ -10,14 +10,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3289062a-e13a-4733-8bdc-5e3523cec17e" name="Default Changelist" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookingdemo/bookingdemo/BookingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bookingdemo/bookingdemo/DatabaseSeeder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookingdemo/bookingdemo/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookingdemo/bookingdemo/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bookingdemo/bookingdemo/HotelBooking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bookingdemo/bookingdemo/HotelBooking.java" afterDir="false" />
+    <list default="true" id="3289062a-e13a-4733-8bdc-5e3523cec17e" name="Default Changelist" comment="Setup HSQL DB: added delete function and restructured controller to handle database, added seeder for initial data">
+      <change afterPath="$PROJECT_DIR$/bookings.db.mv.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bookings.db.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookings.db.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookings.db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookings.db.script" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookingdemo/bookingdemo/BookingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookingdemo/bookingdemo/BookingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bookingdemo/bookingdemo/DatabaseSeeder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bookingdemo/bookingdemo/DatabaseSeeder.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589331268293</updated>
       <workItem from="1589331274322" duration="6877000" />
-      <workItem from="1589394101062" duration="4868000" />
+      <workItem from="1589394101062" duration="6574000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1589337540792</created>
@@ -85,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589337540792</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Setup HSQL DB: added delete function and restructured controller to handle database, added seeder for initial data">
+      <created>1589400062698</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589400062698</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,7 +117,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Start up commit" />
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Setup HSQL DB: added delete function and restructured controller to handle database, added seeder for initial data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup HSQL DB: added delete function and restructured controller to handle database, added seeder for initial data" />
   </component>
   <component name="WindowStateProjectService">
     <state x="604" y="167" key="#com.intellij.ide.util.MemberChooser" timestamp="1589396560310">
@@ -117,38 +129,42 @@
       <screen x="0" y="23" width="1600" height="873" />
     </state>
     <state x="720" y="355" width="367" height="253" key="Github.ShareDialog/0.23.1600.873@0.23.1600.873" timestamp="1589337756672" />
-    <state width="1366" height="223" key="GridCell.Tab.0.bottom" timestamp="1589398977253">
+    <state width="1324" height="223" key="GridCell.Tab.0.bottom" timestamp="1589415159868">
       <screen x="0" y="23" width="1600" height="873" />
     </state>
-    <state width="1366" height="223" key="GridCell.Tab.0.bottom/0.23.1600.873@0.23.1600.873" timestamp="1589398977252" />
-    <state width="1366" height="223" key="GridCell.Tab.0.center" timestamp="1589398977251">
+    <state width="1324" height="223" key="GridCell.Tab.0.bottom/0.23.1600.873@0.23.1600.873" timestamp="1589415159868" />
+    <state width="1324" height="223" key="GridCell.Tab.0.center" timestamp="1589415159867">
       <screen x="0" y="23" width="1600" height="873" />
     </state>
-    <state width="1366" height="223" key="GridCell.Tab.0.center/0.23.1600.873@0.23.1600.873" timestamp="1589398977251" />
-    <state width="1366" height="223" key="GridCell.Tab.0.left" timestamp="1589398977250">
+    <state width="1324" height="223" key="GridCell.Tab.0.center/0.23.1600.873@0.23.1600.873" timestamp="1589415159867" />
+    <state width="1324" height="223" key="GridCell.Tab.0.left" timestamp="1589415159866">
       <screen x="0" y="23" width="1600" height="873" />
     </state>
-    <state width="1366" height="223" key="GridCell.Tab.0.left/0.23.1600.873@0.23.1600.873" timestamp="1589398977250" />
-    <state width="1366" height="223" key="GridCell.Tab.0.right" timestamp="1589398977252">
+    <state width="1324" height="223" key="GridCell.Tab.0.left/0.23.1600.873@0.23.1600.873" timestamp="1589415159864" />
+    <state width="1324" height="223" key="GridCell.Tab.0.right" timestamp="1589415159868">
       <screen x="0" y="23" width="1600" height="873" />
     </state>
-    <state width="1366" height="223" key="GridCell.Tab.0.right/0.23.1600.873@0.23.1600.873" timestamp="1589398977252" />
-    <state width="1366" height="223" key="GridCell.Tab.1.bottom" timestamp="1589398977255">
+    <state width="1324" height="223" key="GridCell.Tab.0.right/0.23.1600.873@0.23.1600.873" timestamp="1589415159868" />
+    <state width="1324" height="223" key="GridCell.Tab.1.bottom" timestamp="1589415159871">
       <screen x="0" y="23" width="1600" height="873" />
     </state>
-    <state width="1366" height="223" key="GridCell.Tab.1.bottom/0.23.1600.873@0.23.1600.873" timestamp="1589398977255" />
-    <state width="1366" height="223" key="GridCell.Tab.1.center" timestamp="1589398977254">
+    <state width="1324" height="223" key="GridCell.Tab.1.bottom/0.23.1600.873@0.23.1600.873" timestamp="1589415159871" />
+    <state width="1324" height="223" key="GridCell.Tab.1.center" timestamp="1589415159870">
       <screen x="0" y="23" width="1600" height="873" />
     </state>
-    <state width="1366" height="223" key="GridCell.Tab.1.center/0.23.1600.873@0.23.1600.873" timestamp="1589398977254" />
-    <state width="1366" height="223" key="GridCell.Tab.1.left" timestamp="1589398977253">
+    <state width="1324" height="223" key="GridCell.Tab.1.center/0.23.1600.873@0.23.1600.873" timestamp="1589415159870" />
+    <state width="1324" height="223" key="GridCell.Tab.1.left" timestamp="1589415159869">
       <screen x="0" y="23" width="1600" height="873" />
     </state>
-    <state width="1366" height="223" key="GridCell.Tab.1.left/0.23.1600.873@0.23.1600.873" timestamp="1589398977253" />
-    <state width="1366" height="223" key="GridCell.Tab.1.right" timestamp="1589398977254">
+    <state width="1324" height="223" key="GridCell.Tab.1.left/0.23.1600.873@0.23.1600.873" timestamp="1589415159869" />
+    <state width="1324" height="223" key="GridCell.Tab.1.right" timestamp="1589415159870">
       <screen x="0" y="23" width="1600" height="873" />
     </state>
-    <state width="1366" height="223" key="GridCell.Tab.1.right/0.23.1600.873@0.23.1600.873" timestamp="1589398977254" />
+    <state width="1324" height="223" key="GridCell.Tab.1.right/0.23.1600.873@0.23.1600.873" timestamp="1589415159870" />
+    <state x="391" y="194" key="Vcs.Push.Dialog.v2" timestamp="1589400083457">
+      <screen x="0" y="23" width="1600" height="873" />
+    </state>
+    <state x="391" y="194" key="Vcs.Push.Dialog.v2/0.23.1600.873@0.23.1600.873" timestamp="1589400083457" />
     <state x="492" y="43" width="598" height="822" key="find.popup" timestamp="1589396172440">
       <screen x="0" y="23" width="1600" height="873" />
     </state>
